@@ -1,44 +1,26 @@
+import { Smile } from "lucide-react";
+
 export default function Loading() {
     return (
-        <main className="animate-pulse">
+        /* PERBAIKAN: z-[100] diubah menjadi z-100 */
+        <div className="fixed inset-0 z-100 flex flex-col items-center justify-center bg-peach-50 dark:bg-slate-950">
 
-            {/* HERO */}
-            <section className="h-screen flex items-center justify-center bg-base">
-                <div className="text-center space-y-4">
-                    <div className="h-6 w-40 bg-gray-200 mx-auto rounded"></div>
-                    <div className="h-10 w-80 bg-gray-300 mx-auto rounded"></div>
-                    <div className="h-4 w-64 bg-gray-200 mx-auto rounded"></div>
-                    <div className="h-10 w-40 bg-gray-300 mx-auto rounded"></div>
+            {/* Animasi Ikon */}
+            <div className="relative flex items-center justify-center">
+                {/* Lingkaran berdenyut di belakang */}
+                <div className="absolute w-24 h-24 bg-peach-200 dark:bg-peach-900/50 rounded-full animate-ping opacity-75"></div>
+
+                {/* Ikon Smile melompat-lompat */}
+                <div className="relative bg-peach-500 text-white p-5 rounded-full shadow-2xl animate-bounce border-4 border-white dark:border-slate-800">
+                    <Smile size={40} />
                 </div>
-            </section>
+            </div>
 
-            {/* LOCATIONS */}
-            <section className="py-20 px-6">
-                <div className="h-8 w-48 bg-gray-300 mx-auto mb-10 rounded"></div>
+            {/* Teks Loading */}
+            <h2 className="mt-8 text-xl font-bold text-peach-600 dark:text-peach-400 animate-pulse tracking-tight">
+                Menyiapkan kamar idamanmu... 💕
+            </h2>
 
-                <div className="grid md:grid-cols-3 gap-6">
-                    {[1, 2, 3].map((i) => (
-                        <div key={i} className="p-6 bg-white rounded-xl shadow space-y-4">
-                            <div className="h-5 w-32 bg-gray-300 rounded"></div>
-                            <div className="h-4 w-24 bg-gray-200 rounded"></div>
-                            <div className="h-4 w-full bg-gray-200 rounded"></div>
-                            <div className="h-8 w-full bg-gray-300 rounded"></div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* GALLERY */}
-            <section className="py-20 px-6">
-                <div className="h-8 w-40 bg-gray-300 mx-auto mb-10 rounded"></div>
-
-                <div className="grid grid-cols-3 gap-4">
-                    {[...Array(9)].map((_, i) => (
-                        <div key={i} className="h-40 bg-gray-200 rounded-lg"></div>
-                    ))}
-                </div>
-            </section>
-
-        </main>
+        </div>
     );
 }
